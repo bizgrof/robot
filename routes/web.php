@@ -30,3 +30,7 @@ Route::get('user_info', function () {
 Route::get('product', function () {
     return view('site.product');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
