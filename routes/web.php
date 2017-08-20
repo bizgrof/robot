@@ -14,7 +14,6 @@
 Route::get('/', function () {
     return view('site.index');
 });
-
 Route::get('catalog', function () {
     return view('site.catalog');
 });
@@ -33,4 +32,24 @@ Route::get('product', function () {
 
 Auth::routes();
 
+// Admin auth
+Route::prefix('admin')->group(function(){
+    Route::get('dashboard', 'AdminController@index')->name('dashboard');
+    // Authentication Routes...
+    Route::get('login', 'AdminAuth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'AdminAuth\LoginController@login');
+    Route::post('logout', 'AdminAuth\LoginController@logout')->name('admin.logout');
+    // Registration Routes...
+    Route::get('register', 'AdminAuth\RegisterController@showRegistrationForm')->name('admin.register');
+    Route::post('register', 'AdminAuth\RegisterController@register');
+    // Password Reset Routes...
+    Route::get('password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');;
+    Route::post('password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');;
+    Route::get('password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm')->name('admin.password.reset');;
+    Route::post('password/reset', 'AdminAuth\ResetPasswordController@reset');
+});
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
+

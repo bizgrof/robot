@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('admin.layouts.master')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard USER</div>
+                <div class="panel-heading">ADMIN Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in USER!
+                    You are logged in ADMIN!
                 </div>
             </div>
         </div>
