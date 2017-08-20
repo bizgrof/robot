@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('site.index');
+});
+
+Route::get('catalog', function () {
+    return view('site.catalog');
+});
+Route::get('cart', function () {
+    return view('site.cart');
+});
+Route::get('orders', function () {
+    return view('site.user_profile.orders');
+});
+Route::get('user_info', function () {
+    return view('site.user_profile.user_info');
+});
+Route::get('product', function () {
+    return view('site.product');
 });
