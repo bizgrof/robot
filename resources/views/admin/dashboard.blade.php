@@ -1,17 +1,9 @@
 @extends('admin.layouts.master')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">ADMIN Dashboard</div>
+@section('page_header','Панель управления')
 
-                <div class="panel-body">
-                    You are logged in ADMIN!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+@section('content')
+
+
 @endsection
