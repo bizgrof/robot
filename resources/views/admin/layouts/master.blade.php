@@ -13,8 +13,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{asset('assets/dist/css/AdminLTE.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/dist/css/skins/skin-blue.min.css')}}">
+    <script src="https://unpkg.com/vue"></script>
     <script src="{{asset('assets/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
     @stack('header_scripts')
+    <script>
+        window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -49,13 +55,17 @@
 <script src="{{asset('assets/dist/js/app.min.js')}}"></script>
 
 <script>
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+
 </script>
 @stack('footer_scripts')
 <script src="{{asset('admin_assets/js/script.js')}}"></script>
+
 </body>
 </html>

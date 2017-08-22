@@ -22,7 +22,6 @@ class CreateCategoriesTable extends Migration
             $table->string('meta_keywords')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
             $table->integer('sort')->default(1);
             $table->boolean('published')->default(true);
         });

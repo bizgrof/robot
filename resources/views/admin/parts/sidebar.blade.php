@@ -17,11 +17,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
-                        <a href="{{-- route('stock')--}}"><span>Товары</span></a>
+                    <li class="{{ Route::currentRouteName() == 'products.index' ? "active" : '' }}">
+                        <a href="{{ route('products.index') }}"><span>Товары</span></a>
                     </li>
-                    <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
-                        <a href="{{-- route('stock')--}}"><span>Категории</span></a>
+                    <li class="{{ Route::currentRouteName() == 'categories.index' ? "active" : '' }}">
+                        <a href="{{ route('categories.index')}}"><span>Категории</span></a>
                     </li>
                     <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
                         <a href="{{-- route('stock')--}}"><span>Атрибуты</span></a>

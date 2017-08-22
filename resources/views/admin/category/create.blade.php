@@ -12,35 +12,26 @@
         </div>
         {{ Form::open(['route' => ['categories.store']]) }}
         <div class="box-body">
-            @component('admin.components.form_group',['id'=>'name', 'text'=>'Имя категории'])
-            {{ Form::text('name',old('name'),['class'=>'form-control','id'=>'name']) }}
-            @endcomponent
 
-            @include('admin.components.text', ['name' => 'alias', 'text' => 'SEO url'])
+            @include('admin.components.text', ['name' => 'name', 'text' => 'Имя категории','old' => old('name')])
+            @include('admin.components.text', ['name' => 'alias', 'text' => 'SEO url','old' => old('alias')])
+            @include('admin.components.text', ['name' => 'meta_title', 'text' => 'Meta title','old' => old('meta_title')])
 
-            <div class="form-group">
-                {{ Form::label('alias','SEO url [alias]',['class' => 'col-sm-2 control-label']) }}
-                {{ Form::text('alias',old('alias'),['class'=>'form-control']) }}
+            @include('admin.components.textarea', ['name' => 'meta_description', 'text' => 'Meta description', 'old' => old('meta_description')])
+            @include('admin.components.textarea', ['name' => 'description', 'text' => 'Описание', 'old' => old('description')])
+
+
+            <div class="form-group clearfix">
+                {{ Form::label('published','Статус',['class' => 'col-sm-2 control-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::select('published',[1=>'Показывать',0 => 'Скрыть'],old('published'),['class'=>'form-control']) }}
+                </div>
             </div>
-            <div class="form-group">
-                {{ Form::label('meta_title','Meta title') }}
-                {{ Form::text('meta_title',old('meta_title'),['class'=>'form-control']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('meta_description','Meta description') }}
-                {{ Form::textarea('meta_description',old('meta_description'),['class'=>'form-control','size' => '30x5']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('description','Описание') }}
-                {{ Form::textarea('description',old('description'),['class'=>'form-control','size' => '30x5']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('published','Статус') }}
-                {{ Form::select('published',[1=>'Показывать',0 => 'Скрыть'],old('published'),['class'=>'form-control']) }}
-            </div>
-            <div class="form-group">
-                {{ Form::label('sort','Сортировка') }}
-                {{ Form::number('sort', 0 ,['class'=>'form-control']) }}
+            <div class="form-group clearfix">
+                {{ Form::label('sort','Сортировка',['class' => 'col-sm-2 control-label']) }}
+                <div class="col-sm-10">
+                    {{ Form::number('sort', 0 ,['class'=>'form-control']) }}
+                </div>
             </div>
 
 
