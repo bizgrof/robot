@@ -1,7 +1,7 @@
 <div class="navbar-custom-menu">
     <ul class="nav navbar-nav">
         <li class="top-menu-item">
-            <a href="{{-- route('home') --}}" target="_blank">
+            <a href="{{ route('home') }}" target="_blank">
                 <i class="fa fa-globe" ></i>Сайт</a>
         </li>
 

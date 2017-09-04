@@ -14,30 +14,55 @@
 Route::get('/', function () {
     return view('site.index');
 });
-Route::get('catalog', function () {
-    return view('site.catalog');
-});
+//Route::get('catalog', function () { return view('site.catalog'); });
 Route::get('cart', function () {
     return view('site.cart');
 });
-Route::get('orders', function () {
-    return view('site.user_profile.orders');
-});
-Route::get('user_info', function () {
-    return view('site.user_profile.user_info');
-});
+
+
 Route::get('product', function () {
     return view('site.product');
 });
 
+// User auth
 Auth::routes();
+
+// User
+Route::prefix('user')->group(function(){
+    Route::get('orders','UserController@orders')->name('user.orders');
+    Route::get('info','UserController@info')->name('user.info');
+    Route::get('videos','UserController@videos')->name('user.videos');
+    Route::post('save_info','UserController@saveInfo')->name('save.info');
+});
+
+// Cart
+Route::prefix('cart')->group(function(){
+    Route::get('/', 'CartController@index')->name('cart.index');
+    Route::post('add','CartController@add')->name('cart.add');
+    Route::get('clear','CartController@clear')->name('cart.clear');
+    Route::post('update_product_qty','CartController@updateProductQty')->name('cart.update_product_qty');
+    Route::get('get_cart','CartController@getCart')->name('cart.get');
+});
+
+// Category
+Route::get('categories/{alias}','CatalogController@category')->name('catalog.category');
+Route::get('catalog','CatalogController@catalog')->name('catalog');
+
+// Product
+Route::get('product/{alias}','ProductController@show')->name('product.show');
+
+
 
 // Admin auth
 Route::prefix('admin')->group(function(){
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::namespace('Admin')->group(function(){
         Route::resource('categories', 'CategoryController'); // Категории товаров
-        Route::resource('products', 'ProductController'); // Категории товаров
+        Route::resource('products', 'ProductController'); // Товаровы
+        Route::post('delete_image', 'ProductController@deleteImaga')->name('delete_image');
+        Route::resource('manufacturers', 'ManufacturerController'); // Производители
+        Route::resource('countries', 'CountriesController'); // Страны
+        Route::resource('materials', 'MaterialController'); // Материал
     });
     // Authentication Routes...
     Route::namespace('AdminAuth')->group(function(){

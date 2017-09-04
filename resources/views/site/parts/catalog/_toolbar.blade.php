@@ -1,9 +1,12 @@
 <div class="content__toolbar">
     <div class="content__sort"><span class="toolbar__title">Сортировать по : </span>
         <select class="content__sort_select">
-            <option value="1">популярности</option>
-            <option value="2">цене</option>
-            <option value="3">возрасту</option>
+            <option value="default" <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'default'){ echo 'selected'; } ?> >Без сортировки</option>
+            <option value="popular" <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'popular'){ echo 'selected'; } ?>>по популярности</option>
+            <option value="price_desc" <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'price_desc'){ echo 'selected'; } ?>>цене по убыванию</option>
+            <option value="price_asc" <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'price_asc'){ echo 'selected'; } ?>>цене по возрастанию</option>
+            <option value="age_desc" <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'age_desc'){ echo 'selected'; } ?>>возраст по убыванию</option>
+            <option value="age_asc"> <?php if(isset($selected_filters['sort']) and $selected_filters['sort'] == 'age_asc'){ echo 'selected'; } ?>возраст по возрастанию</option>
         </select>
     </div>
     <div class="content__switch_right">

@@ -2637,8 +2637,6 @@ table {
 }
 
 .table__cart_image {
-  width: 150px;
-  height: 150px;
   float: left;
   margin-right: 25px;
 }

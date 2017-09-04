@@ -26,6 +26,15 @@
                     <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
                         <a href="{{-- route('stock')--}}"><span>Атрибуты</span></a>
                     </li>
+                    <li class="{{ Route::currentRouteName() == 'manufacturers.index' ? "active" : '' }}">
+                        <a href="{{ route('manufacturers.index') }}"><span>Производители</span></a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() == 'countries.index' ? "active" : '' }}">
+                        <a href="{{ route('countries.index') }}"><span>Страны</span></a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() == 'materials.index' ? "active" : '' }}">
+                        <a href="{{ route('materials.index') }}"><span>Материал</span></a>
+                    </li>
                 </ul>
             </li>
 

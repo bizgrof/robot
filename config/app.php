@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        App\Providers\ComposerServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -184,6 +185,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Alexusmai\Ruslug\RuslugServiceProvider::class,
+
+        App\Providers\HelpersServiceProvider::class,
     ],
 
     /*
@@ -242,6 +245,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Slug' => Alexusmai\Ruslug\RuslugFacade::class,
+
+        'Helper' => App\Helpers\Helper::class,
     ],
 
 ];

@@ -11,9 +11,7 @@
 
             @include('site.parts.catalog._toolbar')
 
-            @for($i = 0; $i < 10; $i++)
-                @include('site.parts.catalog._product_item')
-            @endfor
+            @each('site.parts.catalog._product_item',$products,'product')
 
         </div>
     </div>

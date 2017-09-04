@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class RegisterController extends Controller
 {
@@ -27,8 +29,15 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+   //protected $redirectTo = '/home';
 
+//    public function redirectPath(){
+//        return Url::previous();
+//    }
+    protected function redirectTo()
+    {
+        return url()->previous();
+    }
     /**
      * Create a new controller instance.
      *

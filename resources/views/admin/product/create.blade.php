@@ -19,8 +19,14 @@
             <div class="tab-pane active" id="tab_1">
                 @include('admin.product.parts.create.tab_1')
             </div>
-            <div class="tab-pane active" id="tab_2">
+            <div class="tab-pane" id="tab_2">
                 @include('admin.product.parts.create.tab_2')
+            </div>
+            <div class="tab-pane" id="tab_3">
+                @include('admin.product.parts.create.tab_3')
+            </div>
+            <div class="tab-pane" id="tab_4">
+                @include('admin.product.parts.create.tab_4')
             </div>
         </div>
     </div>
