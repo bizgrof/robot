@@ -10,10 +10,35 @@ function addToCart(product_id){
 }
 
 function checkout(){
-	var order_type = $('input[name="order_type"]:checked').val();
-	if(!order_type){ alert('Выберите способ доставки'); }
 
-	console.log(order_type);
+	var order_type = $('input[name="order_type"]:checked').val();
+
+	if(!order_type){ alert('Выберите способ доставки'); return false;}
+
+	if(order_type == 'pickup'){
+		var phone = $('#pickup').find('input[name=phone]').val().trim();
+		var email = $('#pickup').find('input[name=email]').val().trim();
+
+		if(phone || (email && mail_valid.test(email))){
+			console.log('Валидный');
+			Cart.checkout($('#pickup'));
+		}else{
+			alert('Надо ввести телефон или почту');
+			return false;
+		}
+	}
+	if(order_type == 'courier'){
+		var phone = $('#courier').find('input[name=phone]').val().trim();
+		var address = $('#courier').find('input[name=address]').val().trim();
+
+		if(phone && address){
+			console.log('Валидный courier');
+			Cart.checkout($('#courier'));
+		}else{
+			alert('Введены не все данные');
+			return false;
+		}
+	}
 }
 
 //==================================== Cart increment/decrement ========================================
@@ -46,6 +71,24 @@ var Cart = {
 		this.send('/cart/add', data, 'POST');
 	},
 
+	remove : function(product_id){
+
+		$('#cart_product_' + product_id).fadeOut();
+
+		$.ajax({
+			url : '/cart/remove',
+			dataType : 'json',
+			type : 'POST',
+			data : {'product_id' : product_id},
+			success : function(data){
+				if(data.products.lenth){
+
+				}
+				console.log(data);
+			}
+		});
+	},
+
 	clear : function(){
 		this.send('/cart/clear', '', 'GET');
 	},
@@ -68,7 +111,31 @@ var Cart = {
 		return json;
 	},
 
-	send : function(url, data, type){
+	checkout : function(form){
+		var form_serialized = form.serialize();
+		var pay_type = $('input[name="pay_type"]:checked').val();
+		if(!pay_type){
+			alert('Выберете способ оплаты');
+			return false;
+		}
+
+		form_serialized += '&gift_wrap=' + Number($('input[name="gift_wrap"]').is(':checked'));
+		form_serialized += '&pay_type=' + pay_type;
+
+		$.ajax({
+			url : '/cart/checkout',
+			dataType : 'json',
+			type : 'POST',
+			data : form_serialized,
+			success : function(data){
+				if(data.redirect){
+					location.href = data.redirect;
+				}
+			}
+		});
+	},
+
+	send : function(url, data, type, callback){
 		$.ajax({
 			url : url,
 			dataType : 'json',
@@ -81,7 +148,8 @@ var Cart = {
 				}
 				$("#cart_qty, .cart_total_qty").text(data.total_qty);
 				$("#cart_sum, .cart_total_sum").text(data.total_cost);
-				console.log(data);
+
+
 			}
 		});
 	}
@@ -100,6 +168,15 @@ var Cart = {
 
 
 $(document).ready(function() {
+
+
+	$('input[name="order_type"]').change(function(){
+		$('input[name="order_type"]').prop('checked', false);
+		$(this).prop('checked', true);
+	});
+
+
+
 	var heightItem = {
 		/*
 		 * Получает высоту всех элементов переданного класса
@@ -115,7 +192,10 @@ $(document).ready(function() {
 		    });
 
 		    arr = Math.max.apply(null, arr); // Ищем наибольшую высоту
-		    return arr + 'px';  // Склеиваем число с px и возращаем как строку
+			console.log(arr);
+		    return 15 + arr + 'px';  // Склеиваем число с px и возращаем как строку
+
+
 		},
 		
 		/*
@@ -123,9 +203,9 @@ $(document).ready(function() {
 		 * @param (string) element, элемент которые передает в функцию, ex. ".product__item"
 		 */
 		set: function(element) {
-			var el = heightItem.get(element); // Получаем наибольшую высоту нашего элемента
+			var el = this.get(element); // Получаем наибольшую высоту нашего элемента
 			$(element).css('min-height', el); //Устанавливаем высоту по наибольшему значение
-	    	//return console.log('Установлена высота для: ' + element);
+	    	return console.log('Установлена высота для: ' + element);
 		}
 	};
 
@@ -381,6 +461,7 @@ $(document).ready(function() {
 //# sourceMappingURL=main.js.map
 
 
+var mail_valid = /^\w+@\w+\.\w{2,4}$/i;
 
 /*
  jQuery Masked Input Plugin

@@ -36,12 +36,34 @@ class Cart
         return $cart;
     }
 
-    static public function clear(){
-        Session::forget('cart');
+
+    static public function remove($product_id){
+        Session::forget('cart.products.'.$product_id);
+        if(empty(Session::get('cart.products'))){
+            self::clear();
+            return false;
+        }
         return self::update();
     }
 
+    static public function getTotal(){
+        $total = array();
+        $total['total_cost'] = Session::get('cart.total_cost');
+        $total['total_qty'] = Session::get('cart.total_qty');
+
+        return $total;
+    }
+
+    static public function getProduct(){
+        return Session::get('cart.products');
+    }
+
+    static public function clear(){
+        Session::forget('cart');
+    }
+
     static public function update(){
+
         $total_qty = 0;
         $total_cost = 0;
         $cart_products = Session::get('cart.products');

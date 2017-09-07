@@ -21,6 +21,12 @@
                     @if (Auth::guest())
                         <a data-mfp-src="#modal-login" href="#" class="nav__auth_link js-modal">Вход</a>
                     @else
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Выйти
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         <a href="{{ route('user.orders') }}" class="nav__auth_link">{{ Auth::user()->name }}</a>
                     @endif
                 </div>

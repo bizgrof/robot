@@ -38,10 +38,13 @@ Route::prefix('user')->group(function(){
 // Cart
 Route::prefix('cart')->group(function(){
     Route::get('/', 'CartController@index')->name('cart.index');
+    Route::get('/success', 'CartController@success')->name('cart.success');
     Route::post('add','CartController@add')->name('cart.add');
+    Route::post('remove','CartController@remove')->name('cart.remove');
     Route::get('clear','CartController@clear')->name('cart.clear');
     Route::post('update_product_qty','CartController@updateProductQty')->name('cart.update_product_qty');
     Route::get('get_cart','CartController@getCart')->name('cart.get');
+    Route::post('checkout','CartController@checkout')->name('cart.checkout');
 });
 
 // Category

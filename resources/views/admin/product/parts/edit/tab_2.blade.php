@@ -29,6 +29,10 @@
             {{ Form::text('quantity',$product->quantity,['class'=>'form-control']) }}
         </div>
 
+        <div class="form-group">
+            {{ Form::label('models_count','Количество моделей') }}
+            {{ Form::text('models_count',$product->models_count,['class'=>'form-control']) }}
+        </div>
 
     </div>
     <div class="col-sm-6">
