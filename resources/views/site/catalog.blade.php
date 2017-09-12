@@ -17,4 +17,4 @@
         {{ $products->links() }}
     </div>
 
-@endsectiongit
+@endsection

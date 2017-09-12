@@ -197,7 +197,7 @@ $(document).ready(function() {
 
 
 		},
-		
+
 		/*
 		 * Устанавливает высоту всем элементам указанного класса
 		 * @param (string) element, элемент которые передает в функцию, ex. ".product__item"
@@ -210,18 +210,18 @@ $(document).ready(function() {
 	};
 
 
-	
+
 
 	/* Отключение возможности перетаскивать изобращения*/
 	$('img').attr("draggable", "false");
 
 	/** Нормализация высот **/
 	heightItem.set('.product__item');
-	
+
 	if ( $(window).width() > 991 ) {
 		heightItem.set('.article__timeline');
 	}
-	
+
 	/** Продукт: Табы для товара **/
 	$( "#product__tabs" ).tabs({
 		classes: {
@@ -233,7 +233,7 @@ $(document).ready(function() {
 			$('.product__thumbmail_pager').removeAttr('style');
 		})
 
-		
+
 		$('[href="#product__tabs-2"]').on('click', function(){
 			$('.product__thumbmail_pager').css('width', '1170px');
 		})
@@ -241,19 +241,19 @@ $(document).ready(function() {
 	$('.nav__mobile_button').on('click', function(){
 		$('.nav__mobile_list').toggle();
 	});
-	
+
 	/*
 	 * Кнопка показать или скрыть
 	 */
 	$('.btn__filter').on('click', function(){
 		var el = $('.sidebar__additional').css('display');
-		
+
 		if(el == "block") {
 			$(this).text('Показать фильтр');
 			$(this).removeClass('btn__active');
 			$('.sidebar__additional').toggle();
 		}
-		
+
 		if(el == "none") {
 			$(this).text('Скрыть фильтр');
 			$(this).addClass('btn__active');
@@ -263,7 +263,7 @@ $(document).ready(function() {
 
 
 
-	
+
 
 	$('.arrow__up').on('click', function(){
 		var val = $('.product__count').val();
@@ -273,11 +273,11 @@ $(document).ready(function() {
 
 	$('.arrow__down').on('click', function(){
 		var val = $('.product__count').val();
-			
+
 			if(val <= 1) {
 				return $('.product__count').val(1);
 			}
-			
+
 			val = parseInt(val) - 1;
 			$('.product__count').val(val);
 	});
@@ -289,9 +289,9 @@ $(document).ready(function() {
 			}
 	});
 	/*
-	 * Корзина удалить добавить	 
+	 * Корзина удалить добавить
 	 */
-	
+
 
 
 	//var cart = {
@@ -354,11 +354,11 @@ $(document).ready(function() {
 	/*
 	 * Slider for price
 	 */
-	
 
 
 
-	
+
+
 	/*****/
 
 	/*
@@ -391,7 +391,7 @@ $(document).ready(function() {
 	 		// Классы отображения списком
 	 		$('.product__item').attr('class', 'product__item product__layout_list');
 	 		$('.product__item_text, .product__item_spec').css('display', 'block');
-	 		
+
 			// Очищаем минимальную высоту и устанавливаем новую
 	 		$('.product__item').removeAttr('style');
 	 		heightItem.set('.product__item');
@@ -436,7 +436,7 @@ $(document).ready(function() {
 	  arrows: false,
 	  asNavFor: '.product__thumbmail_pager'
 	});
-	
+
 	$('.product__thumbmail_pager').slick({
 	  slidesToShow: 2,
 	  slidesToScroll: 1,

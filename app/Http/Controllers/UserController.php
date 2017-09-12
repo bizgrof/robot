@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function orders(){
-        return view('site.user_profile.orders');
+        $user = Auth::user();
+        $orders = $user->orders;
+        return view('site.user_profile.orders', compact('orders'));
     }
 
     public function info(){
