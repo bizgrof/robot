@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function orders(){
         $user = Auth::user();
-        $orders = $user->orders;
+        //$orders = $user->orders()->with('');
         return view('site.user_profile.orders', compact('orders'));
     }
 
