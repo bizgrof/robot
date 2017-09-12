@@ -28,6 +28,10 @@ class Product extends Model
         return $this->belongsTo('App\Material');
     }
 
+    public function attributes(){
+        return $this->hasMany('App\Attribute');
+    }
+
     public function images(){
         return $this->hasMany('App\Image');
     }

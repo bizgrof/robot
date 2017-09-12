@@ -23,8 +23,8 @@
                     <li class="{{ Route::currentRouteName() == 'categories.index' ? "active" : '' }}">
                         <a href="{{ route('categories.index')}}"><span>Категории</span></a>
                     </li>
-                    <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
-                        <a href="{{-- route('stock')--}}"><span>Атрибуты</span></a>
+                    <li class="{{ Route::currentRouteName() == 'attribute_types.index' ? "active" : '' }}">
+                        <a href="{{ route('attribute_types.index')}}"><span>Атрибуты</span></a>
                     </li>
                     <li class="{{ Route::currentRouteName() == 'manufacturers.index' ? "active" : '' }}">
                         <a href="{{ route('manufacturers.index') }}"><span>Производители</span></a>

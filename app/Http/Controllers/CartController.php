@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\onNewOrder;
 use App\Order;
 use App\OrderProduct;
 use App\Product;
@@ -61,9 +62,11 @@ class CartController extends Controller
             $order_product->product_id = $product->id;
             $order_product->qty = $cart_product['qty'];
             $order_product->cost = $cart_product['cost'];
-            $order->orderProducts()->save($order_product);
+            $order->products()->save($order_product);
         }
         Cart::clear();
+        event(new onNewOrder($order));
+
         if($inputs['pay_type'] == 'receipt_pay'){
             return ['redirect' => route('cart.success')];
         }

@@ -20,7 +20,7 @@ class CatalogController extends Controller
         $products->with(['country','manufacturer','material','images']);
 
         $this->filter($products, $request); // Фильтрация товаров
-        $products = $this->products->get();
+        $products = $this->products->paginate(15)->get();
         $selected_filters = $this->selected_filters;
 
         return view('site.catalog', compact('products','prices','ages','manufacturers','materials','countries','selected_filters'));
@@ -36,7 +36,7 @@ class CatalogController extends Controller
 
 
         $this->filter($products, $request); // Фильтрация товаров
-        $products = $this->products->get();
+        $products = $this->products->paginate(15);
         $selected_filters = $this->selected_filters;
 
         return view('site.catalog', compact('category','products','prices','ages','manufacturers','materials','countries','selected_filters'));

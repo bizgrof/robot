@@ -187,6 +187,8 @@ return [
         Alexusmai\Ruslug\RuslugServiceProvider::class,
 
         App\Providers\HelpersServiceProvider::class,
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -247,6 +249,8 @@ return [
         'Slug' => Alexusmai\Ruslug\RuslugFacade::class,
 
         'Helper' => App\Helpers\Helper::class,
+
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

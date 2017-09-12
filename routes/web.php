@@ -65,7 +65,14 @@ Route::prefix('admin')->group(function(){
         Route::post('delete_image', 'ProductController@deleteImaga')->name('delete_image');
         Route::resource('manufacturers', 'ManufacturerController'); // Производители
         Route::resource('countries', 'CountriesController'); // Страны
+        Route::resource('attribute_types', 'AttributeTypeController'); // Типы атрибутов
         Route::resource('materials', 'MaterialController'); // Материал
+        Route::get('export', 'ExcelExportController@export'); // Excel export
+        Route::get('import', 'ExcelImportController@import'); // Excel import
+        Route::prefix('order')->group(function(){
+            Route::get('/', 'OrderController@index')->name('order.index');
+            Route::get('{order}', 'OrderController@show')->name('order.show');
+        });
     });
     // Authentication Routes...
     Route::namespace('AdminAuth')->group(function(){

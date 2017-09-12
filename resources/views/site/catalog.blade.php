@@ -14,6 +14,7 @@
             @each('site.parts.catalog._product_item',$products,'product')
 
         </div>
+        {{ $products->links() }}
     </div>
 
-@endsection
+@endsectiongit

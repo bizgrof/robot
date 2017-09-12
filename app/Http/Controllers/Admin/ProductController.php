@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AttributeType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
@@ -63,14 +64,15 @@ class ProductController extends Controller
         $countries = Country::all()->pluck('name','id');
         $manufacturers = Manufacturer::all()->pluck('name','id');
         $materials = Material::all()->pluck('name','id');
+        $attribute_types = AttributeType::all()->toJson();
 
-        return view('admin.product.create',compact('categories','countries','manufacturers','materials'));
+        return view('admin.product.create',compact('categories','countries','manufacturers','materials','attribute_types'));
 
     }
 
     public function store(Request $request)
     {
-        $inputs = $request->except('_token','product_image');
+        $inputs = $request->except('_token','product_image','attributes');
 
         if(!$inputs['alias']){
             $inputs['alias'] = Slug::make($inputs['name']);
@@ -91,20 +93,25 @@ class ProductController extends Controller
 
         if($product->save()){
             $images = $request->input('product_image');
-            foreach($images as $image){
-                if(!empty($image['src'])){
-                    $img_extension = pathinfo($image['src'],PATHINFO_EXTENSION );
-                    $img_name =  str_random(30).'.'.$img_extension;
-                    $product->saveImages($image['src'], $img_name);// Сохранение картинок
-                    $image['name'] = $img_name;
-                    $product->images()->create($image);
+            if(isset($images)) {
+                foreach ($images as $image) {
+                    if (!empty($image['src'])) {
+                        $img_extension = pathinfo($image['src'], PATHINFO_EXTENSION);
+                        $img_name = str_random(30) . '.' . $img_extension;
+                        $product->saveImages($image['src'], $img_name);// Сохранение картинок
+                        $image['name'] = $img_name;
+                        $product->images()->create($image);
+                    }
                 }
             }
+            $attributes = $request->input('attributes');
+            if($attributes){
+                $product->attributes()->createMany($attributes);
+            }
 
-            return redirect()->route('products.index')->with('success','Товар "'.$product->name.'" добавлен!');
         }
+        return redirect()->route('products.index')->with('success','Товар "'.$product->name.'" добавлен!');
     }
-
 
     public function show($id){}
 
