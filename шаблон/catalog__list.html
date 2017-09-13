@@ -1,0 +1,285 @@
+<!DOCTYPE html><html class='no-js' lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>robo-sapiens.ru</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/css/bootstrap-slider.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.min.js"></script>
+  <script src="./scripts/main.js"></script>
+</head>
+<body>
+  <div class="nav__mobile"><a href="/" class="nav__mobile_title">Robo-sapiens</a><img src="./images/nav__mobile.svg" alt="Menu" class="nav__mobile_button">
+    <ul class="nav__mobile_list">
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">Конструкторы</a></li>
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">Игрушки</a></li>
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">Коптеры</a></li>
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">О нас</a></li>
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">Обзоры</a></li>
+        <li class="nav__mobile_item"><a href="/" class="nav__mobile_link">Контакты</a></li>
+    </ul>
+  </div>
+  <div class="nav">
+    <div class="nav__info">
+      <div class="nav__contain">
+        <div class="nav__left">
+          <div class="nav__item">с 10-30 до 18-00</div>
+          <div class="nav__item">т. +7(495) 003-91-37</div>
+        </div>
+        <div class="nav__right">
+          <div class="social social__left"><img src="../images/social-vkontakte.svg" alt="vkontakte" class="social__image"><img src="../images/social-instagram.svg" alt="instagram" class="social__image"><img src="../images/social-facebook.svg" alt="facebook" class="social__image"></div>
+          <div class="nav__auth"><a data-mfp-src="#modal-login" href="#" class="nav__auth_link js-modal">Вход</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav__contain">
+      <div class="nav__content"><a href="/"><img src="./images/logo.png" alt="Логотип магазина" class="nav__logo"></a>
+        <div class="nav__search">
+          <input type="text" class="nav__left nav__search_input">
+          <button class="nav__left btn__search"></button>
+        </div>
+        <div class="nav__cart"><a href="/cart.html" class="nav__cart_link">Моя корзина</a>
+          <div class="nav__cart_info">3 позиции - 30 000 руб.</div>
+        </div>
+      </div>
+      <ul class="nav__list">
+          <li class="nav__item"><a href="/" class="nav__item_link">Конструкторы</a></li>
+          <li class="nav__item"><a href="/" class="nav__item_link">Игрушки</a></li>
+          <li class="nav__item"><a href="/" class="nav__item_link">Коптеры</a></li>
+          <li class="nav__item"><a href="/" class="nav__item_link">О нас</a></li>
+          <li class="nav__item"><a href="/" class="nav__item_link">Обзоры</a></li>
+          <li class="nav__item"><a href="/" class="nav__item_link">Контакты</a></li>
+      </ul>
+    </div>
+  </div>
+    <div class="header">
+      <div class="header__contain">
+        <div class="header__block">
+          <ul class="header__breadcrumbs">
+            <li><a href="#" class="header__breadcrumbs_link">Главная</a></li>
+            <li><a href="#" class="header__breadcrumbs_link header__breadcrumbs_active">Каталог</a></li>
+          </ul>
+          <h1 class="header__title">Каталог</h1>
+          <div class="borderline"></div>
+          <div class="header__text">Конструкторы</div>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+      <div class="sidebar sidebar__catalog">
+        <div class="sidebar__toolbar"><span class="toolbar__title">Фильтр</span></div>
+        <div class="sidebar__block">
+          <div class="sidebar__title">Цена</div>
+          <div class="sidebar__slider">Цена: <span class="js__price_min">3000</span> — <span class="js__price_max">17000</span>
+            <div class="js-price-rangeslider"></div>
+          </div>
+        </div>
+        <div class="sidebar__block"> 
+          <div class="sidebar__title">Возраст</div>
+          <div class="sidebar__slider">Выбрано: от <span class="js__age_min">6</span> до <span class="js__age_max">15</span>
+            <div class="js-age-rangeslider"></div>
+          </div>
+        </div><a class="btn btn__filter">Показать фильтр</a>
+        <div class="sidebar__additional">
+            <ul class="sidebar__list">
+              <div class="sidebar__list_title">Тип управления</div>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Управляемые" class="sidebar__hidden">
+                <label for="Управляемые" class="sidebar__item_label">Управляемые</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Неуправляемые" class="sidebar__hidden">
+                <label for="Неуправляемые" class="sidebar__item_label">Неуправляемые</label>
+              </li>
+            </ul>
+            <ul class="sidebar__list">
+              <div class="sidebar__list_title">Производитель</div>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Fischertehnik" class="sidebar__hidden">
+                <label for="Fischertehnik" class="sidebar__item_label">Fischertehnik</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Huna" class="sidebar__hidden">
+                <label for="Huna" class="sidebar__item_label">Huna</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Lego" class="sidebar__hidden">
+                <label for="Lego" class="sidebar__item_label">Lego</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Makeblock" class="sidebar__hidden">
+                <label for="Makeblock" class="sidebar__item_label">Makeblock</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Роботрек" class="sidebar__hidden">
+                <label for="Роботрек" class="sidebar__item_label">Роботрек</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Engino" class="sidebar__hidden">
+                <label for="Engino" class="sidebar__item_label">Engino</label>
+              </li>
+            </ul>
+            <ul class="sidebar__list">
+              <div class="sidebar__list_title">Материал</div>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Пластик" class="sidebar__hidden">
+                <label for="Пластик" class="sidebar__item_label">Пластик</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Пластик / Металл" class="sidebar__hidden">
+                <label for="Пластик / Металл" class="sidebar__item_label">Пластик / Металл</label>
+              </li>
+            </ul>
+            <ul class="sidebar__list">
+              <div class="sidebar__list_title">Страна производства</div>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Германия" class="sidebar__hidden">
+                <label for="Германия" class="sidebar__item_label">Германия</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Дания" class="sidebar__hidden">
+                <label for="Дания" class="sidebar__item_label">Дания</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Италия" class="sidebar__hidden">
+                <label for="Италия" class="sidebar__item_label">Италия</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Китай" class="sidebar__hidden">
+                <label for="Китай" class="sidebar__item_label">Китай</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Россия" class="sidebar__hidden">
+                <label for="Россия" class="sidebar__item_label">Россия</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="США" class="sidebar__hidden">
+                <label for="США" class="sidebar__item_label">США</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Тайвань" class="sidebar__hidden">
+                <label for="Тайвань" class="sidebar__item_label">Тайвань</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Южная Корея" class="sidebar__hidden">
+                <label for="Южная Корея" class="sidebar__item_label">Южная Корея</label>
+              </li>
+              <li class="sidebar__item">
+                <input type="checkbox" id="Кипр" class="sidebar__hidden">
+                <label for="Кипр" class="sidebar__item_label">Кипр</label>
+              </li>
+            </ul><a href="#" class="btn btn__filter_clear">Очистить фильтр</a>
+        </div>
+      </div>
+    <div class="content">
+      <div class="content__toolbar">
+        <div class="content__sort"> <span class="toolbar__title">Сортировать по : </span>
+          <select class="content__sort_select">
+            <option value="1">популярности</option>
+            <option value="2">цене</option>
+            <option value="3">возрасту</option>
+          </select>
+        </div>
+      </div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/1.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Зарядное устройство LEGO</h2></a>
+          <div class="product__item_count">(17 моделей с мотором)</div>
+          <div class="product__item_price">15185 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/1.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Arduino Матрешка</h2></a>
+          <div class="product__item_count">(181 моделей с мотором)</div>
+          <div class="product__item_price">7933 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/2.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Inventor Engine</h2></a>
+          <div class="product__item_count">(13 моделей с мотором)</div>
+          <div class="product__item_price">5236 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/2.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Робот-собакен</h2></a>
+          <div class="product__item_count">(113 моделей с мотором)</div>
+          <div class="product__item_price">9262 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/2.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Утилизатор людей</h2></a>
+          <div class="product__item_count">(194 моделей с мотором)</div>
+          <div class="product__item_price">16156 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+        <div class="product__item product__item_list"><a href="/product.html"><img src="./images/product/1.jpg" alt="undefined" class="product__item_image">
+            <h2 class="product__item_title">Управляемый робот Алдуин-1200PrX-21</h2></a>
+          <div class="product__item_count">(64 моделей с мотором)</div>
+          <div class="product__item_price">20122 руб.</div><a href="/product.html" class="btn btn__cart">В корзину</a></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer__block">
+          <div class="footer__title">Магазин</div>
+          <div class="borderline"></div>
+          <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link">Конструкторы</a></li>
+            <li class="footer__item"><a class="footer__link">Коптеры</a></li>
+          </ul>
+          <ul class="footer__list footer__list_notitle">
+            <li class="footer__item"><a class="footer__link">Игрушки</a></li>
+            <li class="footer__item"><a class="footer__link">О магазине</a></li>
+          </ul>
+      </div>
+      <div class="footer__block">
+          <div class="footer__title">Помощь</div>
+          <div class="borderline"></div>
+          <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link">Оплата и доставка</a></li>
+            <li class="footer__item"><a class="footer__link">Сервисы</a></li>
+          </ul>
+          <ul class="footer__list footer__list_notitle">
+            <li class="footer__item"><a class="footer__link">Гарантия</a></li>
+            <li class="footer__item"><a class="footer__link">О Контакты</a></li>
+          </ul>
+      </div>
+      <div class="footer__block">
+          <div class="footer__title">Контакты</div>
+          <div class="borderline"></div>
+          <ul class="footer__list">
+            <li class="footer__item"><a class="footer__link">Духовской пер. 17 с1</a></li>
+            <li class="footer__item"><a class="footer__link">+7 495 003-91-37</a></li>
+          </ul>
+        <div class="footer__socials">
+          <div class="footer__worktime">пн-пт: 10:30-18:00</div>
+          <div class="social"><img src="../images/social-vkontakte.svg" alt="vkontakte" class="social__image"><img src="../images/social-instagram.svg" alt="instagram" class="social__image"><img src="../images/social-facebook.svg" alt="facebook" class="social__image"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-login" class="modal__content mfp-hide">
+    <div class="modal__title">Вход</div>
+    <div class="modal__text">
+      <form class="modal__form">
+        <input name="email" placeholder="E-mail" class="modal__input">
+        <div class="modal__forgot">
+          <input name="password" placeholder="Пароль" class="modal__input"><a href="#" class="modal__forgot_link">Напомнить пароль?</a>
+        </div>
+        <button class="btn btn__modal">Войти</button>
+      </form><a data-mfp-src="#modal-register" href="#" class="modal__register_button js-modal">Регистрация нового пользователя</a>
+    </div>
+  </div>
+  <div id="modal-register" class="modal__content mfp-hide">
+    <div class="modal__title">Регистрация</div>
+    <div class="modal__text">
+      <form class="modal__form">
+        <input name="email" placeholder="E-mail" class="modal__input">
+        <label class="modal__label">
+          <input type="checkbox" class="modal__checkbox">Подписаться на новости
+        </label>
+        <input name="password" placeholder="Придумайте пароль" class="modal__input">
+        <input name="password" placeholder="Подтвердите пароль" class="modal__input">
+        <input name="name" placeholder="Ваше имя" class="modal__input">
+        <button class="btn btn__modal">Зарегистрироваться</button>
+      </form><a href="#" class="modal__register_button">Регистрация нового пользователя</a>
+    </div>
+  </div>
+</body></html>

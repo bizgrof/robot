@@ -1,0 +1,12 @@
+
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+#RewriteRule ^.* infosite.php [L] 
+
+<IfModule mod_rewrite.c>
+   RewriteEngine On 
+   RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+AddDefaultCharset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml
