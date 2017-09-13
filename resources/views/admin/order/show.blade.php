@@ -50,6 +50,10 @@
                         <td>{{ $order->total_qty }} шт</td>
                     </tr>
                     <tr>
+                        <th>Подарочная упаковка</th>
+                        <td>{{ $order->gift_wrap }}</td>
+                    </tr>
+                    <tr>
                         <th>Комментарий</th>
                         <td>{{ $order->comment }}</td>
                     </tr>

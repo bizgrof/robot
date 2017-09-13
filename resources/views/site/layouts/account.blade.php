@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="account__hello">Здравствуйте Сергей!
+        <div class="account__hello">Здравствуйте {{ Auth::user()->name }}!
             <div class="borderline"></div>
         </div>
         <div class="sidebar sidebar__account">

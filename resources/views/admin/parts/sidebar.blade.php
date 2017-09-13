@@ -7,7 +7,11 @@
                     <span>Панель управления</span>
                 </a>
             </li>
-
+            <li class="{{ Route::currentRouteName() == 'order.index' ? "active" : '' }}">
+                <a href="{{ route('order.index') }}"><i class="fa fa-fw fa-cart-arrow-down"></i>
+                    <span>Заказы</span>
+                </a>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-link"></i>
@@ -40,11 +44,8 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i>
-                    <span>Склад</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    <i class="fa fa-link"></i> <span>Склад</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{-- Route::currentRouteName() == 'stock' ? "active" : '' --}}">
@@ -52,6 +53,7 @@
                     </li>
                 </ul>
             </li>
+
 
         </ul>
     </section>

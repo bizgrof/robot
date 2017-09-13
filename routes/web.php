@@ -19,11 +19,6 @@ Route::get('cart', function () {
     return view('site.cart');
 });
 
-
-Route::get('product', function () {
-    return view('site.product');
-});
-
 // User auth
 Auth::routes();
 
@@ -48,11 +43,12 @@ Route::prefix('cart')->group(function(){
 });
 
 // Category
-Route::get('categories/{alias}','CatalogController@category')->name('catalog.category');
-Route::get('catalog','CatalogController@catalog')->name('catalog');
-
+Route::get('c','CatalogController@catalog')->name('catalog');
+Route::get('c/{category}','CatalogController@category')->name('catalog.category');
+Route::get('c/{category}/{brand}','CatalogController@brand')->name('catalog.brand');
 // Product
-Route::get('product/{alias}','ProductController@show')->name('product.show');
+
+Route::get('c/{category}/{brand}/{product}','ProductController@show')->name('product.show');
 
 
 

@@ -12,10 +12,6 @@ class OrderController extends Controller
 {
     public function index(){
         $orders = Order::all();
-        $order = Order::find(42);
-
-        //event(new onNewOrder($order));
-
         return view('admin.order.index',compact('orders'));
     }
 

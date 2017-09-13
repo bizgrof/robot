@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Manufacturer;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
@@ -17,7 +18,7 @@ class CatalogController extends Controller
 
         $products = (new Product)->newQuery();
 
-        $products->with(['country','manufacturer','material','images']);
+        $products->with(['country','manufacturer','material','images', 'category']);
 
         $this->filter($products, $request); // Фильтрация товаров
         $products = $this->products->paginate(15);
@@ -30,17 +31,26 @@ class CatalogController extends Controller
 
         $category = Category::where('alias',$alias)->first();
 
-        $products = (new Product)->newQuery();
-        $products = $category->products()->with(['country','manufacturer','material','images']);
-
-
+        $products = $category->products()->with(['country','manufacturer','material','images','category']);
 
         $this->filter($products, $request); // Фильтрация товаров
         $products = $this->products->paginate(15);
         $selected_filters = $this->selected_filters;
 
         return view('site.catalog', compact('category','products','prices','ages','manufacturers','materials','countries','selected_filters'));
+    }
 
+    public function brand($category_alias, $brand_alias, Request $request){
+
+        $brand = Manufacturer::where('alias', $brand_alias)->first();
+
+        $products = $brand->products()->with(['country','manufacturer','material','images','category']);
+
+        $this->filter($products, $request); // Фильтрация товаров
+        $products = $this->products->paginate(15);
+        $selected_filters = $this->selected_filters;
+
+        return view('site.catalog', compact('products','selected_filters'));
     }
 
     public function filter($products,$request){

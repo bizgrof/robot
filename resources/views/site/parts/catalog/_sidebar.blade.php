@@ -3,8 +3,8 @@
     <div class="sidebar__block">
         <div class="sidebar__title">Цена</div>
         <div class="sidebar__slider">Цена:
-            <span class="js__price_min">{{ $prices->min_price }}</span> —
-            <span class="js__price_max">{{ $prices->max_price }}</span>
+            <span class="js__price_min">{{ $selected_filters['price'][0] or $prices->min_price }}</span> —
+            <span class="js__price_max">{{ $selected_filters['price'][1] or $prices->max_price }}</span>
             <input id="price-range"
                    type="text"
                    data-slider-min="{{ $prices->min_price }}"

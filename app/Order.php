@@ -28,4 +28,11 @@ class Order extends Model
     public function products(){
         return $this->hasMany('App\OrderProduct');
     }
+
+    public function getTotalCostAttribute($value){ // Сумма заказа
+        return price($value);
+    }
+    public function getGiftWrapAttribute($value){ // Подарочная упаковка
+        return ((bool)$value) ? 'Да' : 'Нет';
+    }
 }

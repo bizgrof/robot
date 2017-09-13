@@ -17,16 +17,15 @@
         <tr class="table__account_row">
             <td data-head="Номер заказа:" class="table__account_cell table__account_bottom">{{ $order->id }}</td>
             <td class="table__account_cell table__account_top">
+                @foreach($order->products as $product)
                 <div class="table__account_order">
-                    <img src="./images/product/1_smaller.jpg" alt="undefined" class="table__account_image"/>
-                    <div class="table__account_title">ENGINO INVENTOR</div>
+                    <img src="{{ asset('p_thumbs/medium/'. $product->product->images->first()->name) }}" alt="undefined" class="table__account_image"/>
+                    <div class="table__account_title">{{ $product->name }}</div>
                 </div>
-                <div class="table__account_order"><img src="./images/product/2_smaller.jpg" alt="undefined" class="table__account_image"/>
-                    <div class="table__account_title">ENGINO INVENTOR</div>
-                </div>
+                @endforeach
             </td>
-            <td data-head="Дата заказа:" class="table__account_cell">27.07.2017</td>
-            <td data-head="Сумма заказа:" class="table__account_cell table__account_price">21939.00 руб</td>
+            <td data-head="Дата заказа:" class="table__account_cell">{{ $order->created_at }}</td>
+            <td data-head="Сумма заказа:" class="table__account_cell table__account_price">{{ $order->total_cost }} руб</td>
         </tr>
         @empty
             <p>Нет заказов</p>

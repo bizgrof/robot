@@ -1,5 +1,5 @@
 <div class="product__item product__layout_grid">
-    <a href="{{ route('product.show', $product->alias) }}">
+    <a href="{{ route('product.show',[$product->category->alias, $product->manufacturer->alias, $product->alias]) }}">
         <img src="@if($product->images->first()) {{ asset('p_thumbs/large/'.$product->images->first()->name) }} @endif" alt="undefined" class="product__item_image">
         <h2 class="product__item_title">{{ $product->name }}</h2></a>
     <div class="product__item_count"></div>
